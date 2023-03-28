@@ -1,35 +1,82 @@
-// String
-const name = "Robert";
+// if else + switch
 
-// Number
-const height = 140;
+let iceCream = prompt("Ice cream???");
 
-// Bolean => true/false
-const positive = true;
-const negative = false;
+if (iceCream === 'chocolate') {
+  console.log("Wow, that's my favourite!")
+} else if (iceCream === 'vanilla') {
+  console.log("Well, I don't like it!")
+} else {
+  console.log('Seems like no ice cream here...')
+}
 
-// Array         0       1       2
-const myArr = ['text', 12345, height];
-myArr[0];
+switch (iceCream) {
+  case 'chocolate':
+    console.log("Wow, that's my favourite!")
+    break;
 
-//Object
-const myCar = {
-  //key  value
-  brand: 'Mercedes-Benz',
-  model: 'C300',
-  color: 'white',
-  VIN: 'AQWEQWE123912312E',
-  plate: '1337',
-  start: function () {
-    alert('Engine started, ready to go');
+  case 'vanilla':
+    console.log("Well, I don't like it!")
+    break;
+
+  default:
+    console.log("Seems like no ice cream here...")
+    break;
+}
+
+// Function
+
+let number1 = prompt('Input first number');
+let number2 = prompt('Input second number');
+
+function multiply(num1, num2) {
+  alert(num1 * num2);
+}
+
+multiply(number1, number2);
+
+const test = () => {
+  alert(num1 * num2);
+}
+
+test();
+
+// What is DOM + Selectors
+const body = document.querySelector('body');
+
+const customBtn = document.createElement('button');
+
+body.appendChild(customBtn);
+
+customBtn.innerText = 'MY BUTTON';
+customBtn.style.marginTop = '20px';
+customBtn.style.borderRadius = '8px';
+customBtn.style.padding = '8px 16px';
+customBtn.style.background = 'black';
+customBtn.style.color = 'white';
+customBtn.style.border = 'none';
+
+const myImg = document.querySelector('img');
+
+function changePicture() {
+  const mySrc = myImg.getAttribute('src');
+
+  if (mySrc === 'images/firefox-icon.png') {
+    myImg.setAttribute('src', "https://cdn-icons-png.flaticon.com/512/5968/5968292.png")
+  } else {
+    myImg.setAttribute('src', "images/firefox-icon.png")
   }
 }
 
-let carPlate = prompt('Tell me licence plate number');
+myImg.addEventListener("click", changePicture);
 
-if (carPlate !== myCar.plate) {
-  alert("It's not your car, look more")
-} else if (carPlate === myCar.plate) {
-  alert("It's your car, ready to go");
-  myCar.start();
+// Local Storage
+
+function nameCheck() {
+  const name = prompt('What is your name?')
+  localStorage.setItem("name", name);
+  const header = document.querySelector('h1');
+  header.textContent = `Hey, ${name}`;
 }
+
+nameCheck();
